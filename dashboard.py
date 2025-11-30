@@ -301,7 +301,7 @@ with col1:
             ).add_to(m)
 
     # Add layer control to toggle between map layers (must be added last)
-    folium.LayerControl(position='topright', collapsed=False).add_to(m)
+    folium.LayerControl(position='topleft', collapsed=True).add_to(m)
 
     # Display map
     st_folium(m, width=700, height=600)
