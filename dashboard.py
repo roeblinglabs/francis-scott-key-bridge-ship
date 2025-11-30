@@ -141,9 +141,6 @@ with col1:
         control=True
     ).add_to(m)
 
-    # Add layer control to toggle between map layers
-    folium.LayerControl().add_to(m)
-    
     # Add Francis Scott Key Bridge marker (BLUE - infrastructure)
     folium.Marker(
         [BRIDGE_LAT, BRIDGE_LON],
@@ -302,7 +299,10 @@ with col1:
                 tooltip=f"{ship['name']} - {risk_level}",
                 icon=marker_icon
             ).add_to(m)
-    
+
+    # Add layer control to toggle between map layers (must be added last)
+    folium.LayerControl(position='topright', collapsed=False).add_to(m)
+
     # Display map
     st_folium(m, width=700, height=600)
     
