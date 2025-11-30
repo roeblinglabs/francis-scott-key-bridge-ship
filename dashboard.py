@@ -132,9 +132,12 @@ with col1:
         control=True
     ).add_to(m)
 
-    # Add NOAA nautical charts as alternative base layer
-    folium.TileLayer(
-        tiles='https://tileservice.charts.noaa.gov/tiles/50000_1/{z}/{x}/{y}.png',
+    # Add NOAA ENC nautical charts as alternative base layer (via ArcGIS REST)
+    folium.WmsTileLayer(
+        url='https://gis.charttools.noaa.gov/arcgis/rest/services/MCS/ENCOnline/MapServer/exts/MaritimeChartService/WMSServer',
+        layers='0,1,2,3,4,5,6,7',
+        fmt='image/png',
+        transparent=True,
         attr='© NOAA',
         name='NOAA Nautical Charts',
         overlay=False,
